@@ -34,5 +34,5 @@ companySchema.set('toJSON', {
     delete returnedObj.__v
   }
 })
-const User = mongoose.model('Company', companySchema)
+const Company = mongoose.model('Company', companySchema)
 module.exports = Company

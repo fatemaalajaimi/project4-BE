@@ -11,33 +11,39 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true
     },
-    name: {
+    accountType: {
       type: String,
       required: true
+      // default: 'personal'
+    },
+    name: {
+      type: String,
+      required: false
     },
     role: {
       type: String,
-      required: true
+      required: false
     },
     education: {
       type: String,
-      required: true
+      required: false
     },
     about: {
       type: String,
-      required: true
+      required: false
     },
     skills: {
       type: String,
-      required: true
+      required: false
     },
     image: {
       type: String,
-      required: true
+      required: true,
+      default: '/uploads/profile/default.png'
     }
   },
   {
-    timestamps: true
+    timestamps: false
   }
 )
 userSchema.set('toJSON', {
