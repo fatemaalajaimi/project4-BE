@@ -4,6 +4,7 @@ const dotenv = require('dotenv')
 const cors = require('cors')
 const authRouter = require('./controllers/auth')
 const userRouter = require('./controllers/user')
+const postRouter = require('./controllers/post')
 const { verifyToken } = require('./middleware/jwtUtils')
 dotenv.config()
 
@@ -15,6 +16,7 @@ app.use(express.json())
 // Routes
 app.use('/auth', authRouter)
 app.use('/user', verifyToken, userRouter)
+app.use('/post', postRouter)
 // app.use('/pharmacy', pharmacyRoutes)
 // app.use('/item', itemRoutes)
 
