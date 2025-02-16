@@ -5,6 +5,8 @@ const cors = require('cors')
 const authRouter = require('./controllers/auth')
 const userRouter = require('./controllers/user')
 const postRouter = require('./controllers/post')
+const jobRouter = require('./controllers/job')
+const applicationRouter = require('./controllers/application')
 const { verifyToken } = require('./middleware/jwtUtils')
 dotenv.config()
 
@@ -15,10 +17,10 @@ app.use(express.json())
 
 // Routes
 app.use('/auth', authRouter)
-app.use('/user', verifyToken, userRouter)
+app.use('/user', userRouter)
 app.use('/post', postRouter)
-// app.use('/pharmacy', pharmacyRoutes)
-// app.use('/item', itemRoutes)
+app.use('/job', jobRouter)
+app.use('/application', applicationRouter)
 
 // Database Connection
 mongoose.connect(process.env.MONGODB_URI)

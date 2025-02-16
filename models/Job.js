@@ -1,29 +1,30 @@
 const mongoose = require('mongoose')
 
-const postSchema = new mongoose.Schema(
+const jobSchema = new mongoose.Schema(
   {
-    content: {
-      type: String,
-      required: true
-    },
-    accountId: {
+    companyId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
       required: true
     },
-    image: {
-      type: String
+    role: {
+      type: String,
+      required: true
+    },
+    description: {
+      type: String,
+      required: true
     }
   },
   {
     timestamps: true
   }
 )
-postSchema.set('toJSON', {
+jobSchema.set('toJSON', {
   transform: (document, returnedObj) => {
     delete returnedObj._id
     delete returnedObj.__v
   }
 })
-const Post = mongoose.model('Post', postSchema)
-module.exports = Post
+const Job = mongoose.model('Job', jobSchema)
+module.exports = Job

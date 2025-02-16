@@ -16,30 +16,14 @@ const userSchema = new mongoose.Schema(
       required: true
       // default: 'personal'
     },
-    name: {
-      type: String,
-      required: false
-    },
-    role: {
-      type: String,
-      required: false
-    },
-    education: {
-      type: String,
-      required: false
-    },
     about: {
-      type: String,
-      required: false
-    },
-    skills: {
       type: String,
       required: false
     },
     image: {
       type: String,
       required: true,
-      default: '/uploads/profile/default.png'
+      default: '/public/profile/default.png'
     }
   },
   {
